@@ -8,23 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VendingMachineMk2
-{
-    public partial class VendingMachine : Form
-    {
-        public VendingMachine()
-        {
+namespace VendingMachineMk2 {
+    public partial class VendingMachine : Form {
+        public VendingMachine() {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+        private void button1_Click(object sender, EventArgs e) {
+            
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
+
     }
 }

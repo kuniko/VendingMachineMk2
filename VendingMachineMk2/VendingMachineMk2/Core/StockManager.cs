@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 using VendingMachineMk2.Data;
 
 namespace VendingMachineMk2.Core {
+
+    /// <summary>
+    /// 商品の『在庫』を管理するManager
+    /// </summary>
     class StockManager {
 
         private StockManager _instance;
 
-        private List<SellItem> _stockList = new List<SellItem>();
+        private List<Shouhin> _stockList = new List<Shouhin>();
 
         
-
-        private StockManager() { }
+        private StockManager() {
+            Initiaize();
+        }
 
         public StockManager GetInstance() {
             if (_instance == null) {
@@ -23,8 +28,15 @@ namespace VendingMachineMk2.Core {
             return _instance;
         }
 
+        /// <summary>
+        /// どーしようかな。
+        /// </summary>
         private void Initiaize() {
-            _stockList.Add(new SellItem("KAN_0001", "", 120));
+            _stockList.Add(ShouhinMaster.Otya());
+            _stockList.Add(ShouhinMaster.Otya());
+            _stockList.Add(ShouhinMaster.Otya());
+            _stockList.Add(ShouhinMaster.Conpota());
+            _stockList.Add(ShouhinMaster.Coke());
         }
 
 

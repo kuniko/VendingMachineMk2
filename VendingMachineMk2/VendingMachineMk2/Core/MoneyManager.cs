@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace VendingMachineMk2.Core {
+
+    /// <summary>
+    /// 『お金』を管理するManager
+    /// </summary>
     class MoneyManager {
         MoneyManager _instance;
 
