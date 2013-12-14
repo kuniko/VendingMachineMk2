@@ -89,5 +89,23 @@ namespace VendingMachineMk2.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   120 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Conpota001 {
+            get {
+                return ResourceManager.GetString("Conpota001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   120 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Otya001 {
+            get {
+                return ResourceManager.GetString("Otya001", resourceCulture);
+            }
+        }
     }
 }
