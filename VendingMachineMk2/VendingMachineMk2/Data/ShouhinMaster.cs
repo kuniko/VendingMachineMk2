@@ -11,14 +11,19 @@ namespace VendingMachineMk2.Data {
     /// </summary>
     public static class ShouhinMaster {
 
+        public static readonly string ShohinCode_Otya = "Otya-001";
+        public static readonly string ShohinCode_Conpota = "Conpota-001";
+        public static readonly string ShohinCode_Coke = "Coke-001";
+
+
         static public Shouhin Otya() {
-            return new Shouhin("Otya-001", "わーいお茶", 120);
+            return new Shouhin(ShohinCode_Otya, "わーいお茶", 120);
         }
         static public Shouhin Conpota() {
-            return new Shouhin("Conpota-001", "コンポタ☆", 120);
+            return new Shouhin(ShohinCode_Conpota, "コンポタ☆", 120);
         }
         static public Shouhin Coke() {
-            return new Shouhin("Coke-001", "コカ", 120);
+            return new Shouhin(ShohinCode_Coke, "コカ", 120);
         }
     }
 }

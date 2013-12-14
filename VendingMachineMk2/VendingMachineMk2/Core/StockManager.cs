@@ -39,6 +39,22 @@ namespace VendingMachineMk2.Core {
             _stockList.Add(ShouhinMaster.Coke());
         }
 
+        public bool CanBuy(string shohinCode, int insertedYen) {
+
+            var canBuy = _stockList.Any(stock =>   (stock.ItemCode == shohinCode) 
+                                                && (insertedYen >= stock.SellingYen));
+
+            return canBuy;
+        }
+
+        public void ShohinDasu(string shohinCode) {
+            if (!_stockList.Any(stock => stock.ItemCode == shohinCode)) {
+                throw new InvalidProgramException("在庫ないのに商品出せるってどういうプログラムですか？");
+            }
+
+            Shouhin shouhin = _stockList.First(stock => stock.ItemCode == shohinCode);
+            _stockList.Remove(shouhin);
+        }
 
 
     }
