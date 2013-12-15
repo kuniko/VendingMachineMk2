@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VendingMachineMk2.Core;
 
 namespace VendingMachineMk2 {
     public partial class VendingMachine : Form {
+
+        
         public VendingMachine() {
             InitializeComponent();
+        }
+
+        private void Initialize() {
+            WindowsFormController wf = WindowsFormController.GetInstance();
+            wf.RegistUIForm(this);
         }
 
         private void button1_Click(object sender, EventArgs e) {

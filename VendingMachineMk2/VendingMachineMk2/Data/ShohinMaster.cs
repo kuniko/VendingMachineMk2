@@ -9,27 +9,27 @@ namespace VendingMachineMk2.Data {
     /// 商品マスタですけど･･･仮です。
     /// DBにしようかなぁ、txtファイルにしようかなぁ。
     /// </summary>
-    public static class ShouhinMaster {
+    public static class ShohinMaster {
 
         public static readonly string ShohinCode_Otya = "Otya-001";
         public static readonly string ShohinCode_Conpota = "Conpota-001";
         public static readonly string ShohinCode_Coke = "Coke-001";
 
 
-        public static IEnumerable<Shouhin> ShouhinCatalogue() {
+        public static IEnumerable<Shohin> ShouhinCatalogue() {
             yield return Otya();
             yield return Conpota();
             yield return Coke();
         }
 
-        static public Shouhin Otya() {
-            return new Shouhin(ShohinCode_Otya, "わーいお茶", 120);
+        static public Shohin Otya() {
+            return new Shohin(ShohinCode_Otya, "わーいお茶", 120);
         }
-        static public Shouhin Conpota() {
-            return new Shouhin(ShohinCode_Conpota, "コンポタ☆", 120);
+        static public Shohin Conpota() {
+            return new Shohin(ShohinCode_Conpota, "コンポタ☆", 120);
         }
-        static public Shouhin Coke() {
-            return new Shouhin(ShohinCode_Coke, "コカ", 120);
+        static public Shohin Coke() {
+            return new Shohin(ShohinCode_Coke, "コカ", 120);
         }
     }
 }

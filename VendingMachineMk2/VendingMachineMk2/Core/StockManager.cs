@@ -14,7 +14,7 @@ namespace VendingMachineMk2.Core {
 
         private static StockManager _instance;
 
-        private List<Shouhin> _stockList = new List<Shouhin>();
+        private List<Shohin> _stockList = new List<Shohin>();
 
         
         private StockManager() {
@@ -32,27 +32,27 @@ namespace VendingMachineMk2.Core {
         /// どーしようかな。
         /// </summary>
         private void Initiaize() {
-            _stockList.Add(ShouhinMaster.Otya());
-            _stockList.Add(ShouhinMaster.Otya());
-            _stockList.Add(ShouhinMaster.Otya());
-            _stockList.Add(ShouhinMaster.Conpota());
-            _stockList.Add(ShouhinMaster.Coke());
+            _stockList.Add(ShohinMaster.Otya());
+            _stockList.Add(ShohinMaster.Otya());
+            _stockList.Add(ShohinMaster.Otya());
+            _stockList.Add(ShohinMaster.Conpota());
+            _stockList.Add(ShohinMaster.Coke());
         }
 
         public bool CanBuy(string shohinCode, int insertedYen) {
 
-            var canBuy = _stockList.Any(stock =>   (stock.ItemCode == shohinCode) 
+            var canBuy = _stockList.Any(stock =>   (stock.ShohinCode == shohinCode) 
                                                 && (insertedYen >= stock.SellingYen));
 
             return canBuy;
         }
 
         public void ShohinDasu(string shohinCode) {
-            if (!_stockList.Any(stock => stock.ItemCode == shohinCode)) {
+            if (!_stockList.Any(stock => stock.ShohinCode == shohinCode)) {
                 throw new InvalidProgramException("在庫ないのに商品出せるってどういうプログラムですか？");
             }
 
-            Shouhin shouhin = _stockList.First(stock => stock.ItemCode == shohinCode);
+            Shohin shouhin = _stockList.First(stock => stock.ShohinCode == shohinCode);
             _stockList.Remove(shouhin);
         }
 
