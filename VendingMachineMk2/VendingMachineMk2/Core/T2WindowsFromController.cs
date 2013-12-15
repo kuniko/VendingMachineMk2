@@ -11,18 +11,18 @@ namespace VendingMachineMk2.Core {
     /// 
     /// WindowsFormに依存するロジックはここに集めるよ！
     /// </summary>
-    class WindowsFormController {
+    class T2WindowsFormController {
 
-        private static WindowsFormController _instance;
+        private static T2WindowsFormController _instance;
 
         private VendingMachine _ui;
 
-        private WindowsFormController() { 
+        private T2WindowsFormController() { 
         }
 
-        public static WindowsFormController GetInstance() {
+        public static T2WindowsFormController GetInstance() {
             if (_instance == null) {
-                _instance = new WindowsFormController();
+                _instance = new T2WindowsFormController();
             }
             return _instance;
         }

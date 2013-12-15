@@ -63,7 +63,7 @@
     <Compile Include="Core\MoneyManager.cs" />
     <Compile Include="Core\MoneyValidator.cs" />
     <Compile Include="Core\StockManager.cs" />
-    <Compile Include="Core\WindowsFromController.cs" />
+    <Compile Include="Core\T2WindowsFromController.cs" />
     <Compile Include="Core\VendingCore.cs" />
     <Compile Include="Data\Shohin.cs" />
     <Compile Include="Data\ShohinMaster.cs" />
