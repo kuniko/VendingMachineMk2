@@ -12,7 +12,7 @@ namespace VendingMachineMk2.Core {
     /// </summary>
     class StockManager {
 
-        private StockManager _instance;
+        private static StockManager _instance;
 
         private List<Shouhin> _stockList = new List<Shouhin>();
 
@@ -21,7 +21,7 @@ namespace VendingMachineMk2.Core {
             Initiaize();
         }
 
-        public StockManager GetInstance() {
+        public static StockManager GetInstance() {
             if (_instance == null) {
                 _instance = new StockManager();
             }

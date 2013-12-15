@@ -10,13 +10,13 @@ namespace VendingMachineMk2.Core {
     /// 『お金』を管理するManager
     /// </summary>
     class MoneyManager {
-        MoneyManager _instance;
+        private static MoneyManager _instance;
 
         int _totalInsertedYen;
 
         private MoneyManager() { }
 
-        public MoneyManager GetInstance() {
+        public static MoneyManager GetInstance() {
             if (_instance == null) {
                 _instance = new MoneyManager();
             }

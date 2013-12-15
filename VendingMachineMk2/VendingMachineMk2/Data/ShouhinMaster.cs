@@ -16,6 +16,12 @@ namespace VendingMachineMk2.Data {
         public static readonly string ShohinCode_Coke = "Coke-001";
 
 
+        public static IEnumerable<Shouhin> ShouhinCatalogue() {
+            yield return Otya();
+            yield return Conpota();
+            yield return Coke();
+        }
+
         static public Shouhin Otya() {
             return new Shouhin(ShohinCode_Otya, "わーいお茶", 120);
         }
