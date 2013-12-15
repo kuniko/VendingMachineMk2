@@ -18,8 +18,7 @@ namespace VendingMachineMk2 {
         }
 
         private void Initialize() {
-            T2WindowsFormController wf = T2WindowsFormController.GetInstance();
-            wf.RegistUIForm(this);
+            T2WindowsFormController wf = T2WindowsFormController.GetInstance(this);
         }
 
         private void button1_Click(object sender, EventArgs e) {

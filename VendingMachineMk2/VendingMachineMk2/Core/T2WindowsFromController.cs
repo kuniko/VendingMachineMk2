@@ -20,16 +20,20 @@ namespace VendingMachineMk2.Core {
         private T2WindowsFormController() { 
         }
 
-        public static T2WindowsFormController GetInstance() {
+        public static T2WindowsFormController GetInstance(VendingMachine uiForm) {
+            if (uiForm == null) {
+                throw new ArgumentNullException("オイ、ダメですよ。");
+            }
+
             if (_instance == null) {
                 _instance = new T2WindowsFormController();
             }
+
+            // 毎回になるんだよなぁ･･･。でも、SetUIForm();とか作ってInitialize時に呼ぶのも･･･微妙･･･
+            _instance._ui = uiForm;
             return _instance;
         }
-        public void RegistUIForm(VendingMachine ui) {
-            _ui = ui;
-        }
-
+ 
 
         public void UIReflesh(){
             RefleshInsertedMoneyLCD();
