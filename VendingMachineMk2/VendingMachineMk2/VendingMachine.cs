@@ -11,18 +11,17 @@ using VendingMachineMk2.Core;
 
 namespace VendingMachineMk2 {
     public partial class VendingMachine : Form {
-
         
         public VendingMachine() {
             InitializeComponent();
+            Initialize();
         }
 
         private void Initialize() {
-            T2WindowsFormController wf = T2WindowsFormController.GetInstance(this);
+            T2WindowsFormController.SetView(this);
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            
         }
 
 

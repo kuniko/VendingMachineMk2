@@ -14,9 +14,7 @@ namespace VendingMachineMk2.Core {
     /// このクラスから呼ぶViewModelがほしいな～
     /// </summary>
     class VendingCore {
-        static VendingCore _instance;
-
-        private VendingMachine _ui;
+        private static VendingCore _instance;
 
         private VendingCore() { }
 
