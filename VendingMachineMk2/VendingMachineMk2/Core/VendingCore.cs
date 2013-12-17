@@ -57,9 +57,10 @@ namespace VendingMachineMk2.Core {
             if (canBuy) {
                 int totalYen = moneyManager.BuyShohin(toriaezuKoreKau.SellingYen);
                 RefleshTotalInsertedYen(totalYen);
-                CanBuyShohin(totalYen); //todo PropertyChangedを独自実装する。
+                CanBuyShohin(totalYen); //todo ここは、PropertyChangedを独自実装する。
 
-                //todo 買えたんだから、商品出さないとね。
+                // todo 他と呼び出し方法を合わせる。
+                RefleshOutputShohinBox(toriaezuKoreKau);
             }
         }
 
@@ -68,7 +69,13 @@ namespace VendingMachineMk2.Core {
             viewModel.LblTotalInsertedYenBinder = totalYen.ToString() + "円"; // yey!
         }
 
-        private void RefleshOutputShohinBox() {
+        /// <summary>
+        /// todo 形を合わせる。ここだけVMのメソッドを呼んでいるので。
+        /// </summary>
+        /// <param name="shohin"></param>
+        private void RefleshOutputShohinBox(Shohin shohin) {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.RefleshView_OutputShohinBox(shohin);
         }
     }
 }

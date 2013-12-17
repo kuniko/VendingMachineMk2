@@ -8,6 +8,7 @@ using VendingMachineMk2;
 
 namespace VendingMachineMk2.Core {
     using System.ComponentModel;
+    using System.Drawing;
     using System.Runtime.CompilerServices;
 
     using VendingMachineMk2.Data;
@@ -71,11 +72,12 @@ namespace VendingMachineMk2.Core {
             }
         }
 
-        // Shohin持たせたくないな～
-//        private List<Shohin> 
 
+        /// <summary>
+        /// binding用
+        /// とりあえず、1個目の商品ボタン
+        /// </summary>
         private bool _canBuyShohin01;
-
         public bool BtnShohin01Binder {
             set {
                 _canBuyShohin01 = value;
@@ -101,6 +103,10 @@ namespace VendingMachineMk2.Core {
         }
 
 
+        public void RefleshView_OutputShohinBox(Shohin shohin) {
+            _view.pictOutputShohinBox.Image = Properties.Resources.Can03;
+            _view.pictOutputShohinBox.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+        }
 
 
 

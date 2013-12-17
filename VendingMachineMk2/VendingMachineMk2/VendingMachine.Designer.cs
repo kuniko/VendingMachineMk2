@@ -35,13 +35,13 @@
             this.btnInsertYen100 = new System.Windows.Forms.Button();
             this.btnInsertYen10 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictOutputShohinBox = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button7 = new System.Windows.Forms.Button();
             this.lblInsertedYen2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictOutputShohinBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -115,15 +115,15 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "10000円";
             // 
-            // pictureBox4
+            // pictOutputShohinBox
             // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 325);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(205, 78);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox4.TabIndex = 9;
-            this.pictureBox4.TabStop = false;
+            this.pictOutputShohinBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictOutputShohinBox.Location = new System.Drawing.Point(12, 325);
+            this.pictOutputShohinBox.Name = "pictOutputShohinBox";
+            this.pictOutputShohinBox.Size = new System.Drawing.Size(205, 78);
+            this.pictOutputShohinBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictOutputShohinBox.TabIndex = 9;
+            this.pictOutputShohinBox.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -182,7 +182,7 @@
             this.ClientSize = new System.Drawing.Size(229, 415);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictOutputShohinBox);
             this.Controls.Add(this.btnInsertYen10);
             this.Controls.Add(this.btnInsertYen100);
             this.Controls.Add(this.btnInsertYen1000);
@@ -198,7 +198,7 @@
             this.MinimizeBox = false;
             this.Name = "VendingMachine";
             this.Text = "じはんき";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictOutputShohinBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -217,11 +217,11 @@
         private System.Windows.Forms.Button btnInsertYen1000;
         private System.Windows.Forms.Button btnInsertYen100;
         private System.Windows.Forms.Button btnInsertYen10;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button7;
         public System.Windows.Forms.Label lblInsertedYen2;
         public System.Windows.Forms.Button btnShohin01;
+        public System.Windows.Forms.PictureBox pictOutputShohinBox;
     }
 }
 
