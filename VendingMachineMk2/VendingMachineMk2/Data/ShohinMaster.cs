@@ -11,9 +11,9 @@ namespace VendingMachineMk2.Data {
     /// </summary>
     public static class ShohinMaster {
 
-        public static readonly string ShohinCode_Otya = "Otya-001";
-        public static readonly string ShohinCode_Conpota = "Conpota-001";
-        public static readonly string ShohinCode_Coke = "Coke-001";
+        public const string ShohinCode_Otya = "Otya-001";
+        public const string ShohinCode_Conpota = "Conpota-001";
+        public const string ShohinCode_Coke = "Coke-001";
 
 
         public static IEnumerable<Shohin> ShouhinCatalogue() {

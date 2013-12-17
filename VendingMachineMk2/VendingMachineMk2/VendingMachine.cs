@@ -19,12 +19,33 @@ namespace VendingMachineMk2 {
 
         private void Initialize() {
             T2WindowsFormController.SetView(this);
+
+            //T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            //viewModel.PropertyChanged += PropertyChangedLblInsertedYen;
+
+
+            // プロパティを手でって最悪。XAMLじゃないとダメだ･･･
+            // lblInsertedYen2.DataBindings.Add("Text", viewModel, "LblTotalInsertedYenBinder"); 
+            //
+            // XAMLならBindしたプロパティ名も、しっかりとIDEの参照で引っかかる。
+            // Bindingをデザイナから指定する方法も、上手く動かない。XAMLだと補完してくれるっぽい･･･
+
+            // また、INotifyPropertyChangedをT2WindowsFormControllerに実装するのも止める。
+            // 結局、どのプロパティ(orメソッド)で発生したのかを、どこかでTextで受ける必要あり。
+            // 工夫して避けてもしんどい。MVVM Light ToolkitやPrismも、結局はWPFと組み合わせるのが前提である。
+            //
+            // 諦めて、手でViewModelを再現する方向性に。
+            // Bindingはしない！！IDEのサポートなしとか冗談じゃない！
         }
 
         private void button1_Click(object sender, EventArgs e) {
+            
         }
 
-
+        private void button4_Click(object sender, EventArgs e) {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.InsertYen(100);
+        }
 
     }
 }

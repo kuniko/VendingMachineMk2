@@ -31,7 +31,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.lblInsertedYen = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -40,6 +39,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.lblInsertedYen2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -71,17 +72,6 @@
             this.button3.TabIndex = 4;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // lblInsertedYen
-            // 
-            this.lblInsertedYen.AutoSize = true;
-            this.lblInsertedYen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblInsertedYen.Location = new System.Drawing.Point(152, 200);
-            this.lblInsertedYen.Name = "lblInsertedYen";
-            this.lblInsertedYen.Padding = new System.Windows.Forms.Padding(5);
-            this.lblInsertedYen.Size = new System.Drawing.Size(59, 24);
-            this.lblInsertedYen.TabIndex = 5;
-            this.lblInsertedYen.Text = "10000円";
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(19, 232);
@@ -90,6 +80,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -111,7 +102,6 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Location = new System.Drawing.Point(151, 283);
             this.label2.Name = "label2";
@@ -160,17 +150,38 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(-1, 13);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(227, 129);
+            this.button7.TabIndex = 12;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // lblInsertedYen2
+            // 
+            this.lblInsertedYen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInsertedYen2.Location = new System.Drawing.Point(151, 196);
+            this.lblInsertedYen2.Name = "lblInsertedYen2";
+            this.lblInsertedYen2.Padding = new System.Windows.Forms.Padding(5);
+            this.lblInsertedYen2.Size = new System.Drawing.Size(59, 24);
+            this.lblInsertedYen2.TabIndex = 5;
+            this.lblInsertedYen2.Text = "0円";
+            this.lblInsertedYen2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // VendingMachine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(229, 415);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.lblInsertedYen);
+            this.Controls.Add(this.lblInsertedYen2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -204,7 +215,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label lblInsertedYen;
+        private System.Windows.Forms.Button button7;
+        public System.Windows.Forms.Label lblInsertedYen2;
     }
 }
 

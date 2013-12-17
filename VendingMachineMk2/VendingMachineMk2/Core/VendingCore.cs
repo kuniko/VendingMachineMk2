@@ -30,6 +30,9 @@ namespace VendingMachineMk2.Core {
             MoneyManager moneyManager = MoneyManager.GetInstance();
             int totalYen = moneyManager.InsertYen(insertedYen);
 
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.LblTotalInsertedYenBinder = totalYen.ToString() + "円"; // yey!
+
             CanBuyShohin(totalYen);
         }
 

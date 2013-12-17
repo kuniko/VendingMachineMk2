@@ -7,21 +7,25 @@ using VendingMachineMk2;
 
 
 namespace VendingMachineMk2.Core {
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+
+    using VendingMachineMk2.Data;
 
     /// <summary>
     /// このクラスはね、ViewModelの役目を果たしたいよ！
     /// 
     /// WindowsFormに依存するロジックはここに集めるよ！
     /// </summary>
-    class T2WindowsFormController {
+    class T2WindowsFormController/*: INotifyPropertyChanged*/ {
 
         private static T2WindowsFormController _instance;
 
         private static VendingMachine _view;
 
 
-        private T2WindowsFormController() { 
-        }        
+        private T2WindowsFormController() {
+        }
 
         public static T2WindowsFormController GetInstance() {
             if (_instance == null) {
@@ -39,24 +43,44 @@ namespace VendingMachineMk2.Core {
         public static void SetView(VendingMachine view) {
             _view = view;
         }
- 
 
-        public void UIReflesh(){
-            RefleshInsertedMoneyLCD();
+
+        /// <summary>
+        /// こいん いっこ いれる
+        /// </summary>
+        /// <param name="yen"></param>
+        public void InsertYen(int yen) {
+            VendingCore core = VendingCore.GetInstance();
+            core.InsertYen(yen);
         }
 
-        private void RefleshInsertedMoneyLCD() {
-            MoneyManager moneyManager = MoneyManager.GetInstance();
-            _view.lblInsertedYen.Text = moneyManager.InsertYen(0).ToString();
+
+        /// <summary>
+        /// binding用
+        /// </summary>
+        private string _totalInsertedYen = "";
+        public string LblTotalInsertedYenBinder {
+            set {
+                _totalInsertedYen = value;
+                RefleshView_TotalInsertedYen(_totalInsertedYen);
+            }
         }
 
-        private void RefleshShohinButton() { 
+        // Shohin持たせたくないな～
+//        private List<Shohin> 
 
+
+
+        /// <summary>
+        /// はー･･･全て作るのかぁ。。。
+        /// </summary>
+        /// <param name="totalInsertedYen"></param>
+        private void RefleshView_TotalInsertedYen(string totalInsertedYen) {
+            _view.lblInsertedYen2.Text = totalInsertedYen;
         }
 
-        private void RefleshShohinOutputBox() { 
+        
 
-        }
 
     }
 }
