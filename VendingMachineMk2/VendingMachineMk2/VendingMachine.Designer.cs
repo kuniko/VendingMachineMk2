@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnShohin01 = new System.Windows.Forms.Button();
+            this.btnShohin02 = new System.Windows.Forms.Button();
+            this.btnShohin03 = new System.Windows.Forms.Button();
+            this.btnInsertYen1000 = new System.Windows.Forms.Button();
+            this.btnInsertYen100 = new System.Windows.Forms.Button();
+            this.btnInsertYen10 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -47,58 +47,63 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnShohin01
             // 
-            this.button1.Location = new System.Drawing.Point(13, 147);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 23);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnShohin01.Enabled = false;
+            this.btnShohin01.Location = new System.Drawing.Point(13, 147);
+            this.btnShohin01.Name = "btnShohin01";
+            this.btnShohin01.Size = new System.Drawing.Size(64, 23);
+            this.btnShohin01.TabIndex = 0;
+            this.btnShohin01.UseVisualStyleBackColor = true;
+            this.btnShohin01.Click += new System.EventHandler(this.BtnShohin01_OnClick);
             // 
-            // button2
+            // btnShohin02
             // 
-            this.button2.Location = new System.Drawing.Point(83, 148);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 23);
-            this.button2.TabIndex = 0;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnShohin02.Enabled = false;
+            this.btnShohin02.Location = new System.Drawing.Point(83, 148);
+            this.btnShohin02.Name = "btnShohin02";
+            this.btnShohin02.Size = new System.Drawing.Size(64, 23);
+            this.btnShohin02.TabIndex = 0;
+            this.btnShohin02.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnShohin03
             // 
-            this.button3.Location = new System.Drawing.Point(153, 148);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(64, 23);
-            this.button3.TabIndex = 4;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnShohin03.Enabled = false;
+            this.btnShohin03.Location = new System.Drawing.Point(153, 148);
+            this.btnShohin03.Name = "btnShohin03";
+            this.btnShohin03.Size = new System.Drawing.Size(64, 23);
+            this.btnShohin03.TabIndex = 4;
+            this.btnShohin03.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnInsertYen1000
             // 
-            this.button4.Location = new System.Drawing.Point(19, 232);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(58, 22);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnInsertYen1000.Location = new System.Drawing.Point(19, 232);
+            this.btnInsertYen1000.Name = "btnInsertYen1000";
+            this.btnInsertYen1000.Size = new System.Drawing.Size(58, 22);
+            this.btnInsertYen1000.TabIndex = 6;
+            this.btnInsertYen1000.Text = "1000\\";
+            this.btnInsertYen1000.UseVisualStyleBackColor = true;
+            this.btnInsertYen1000.Click += new System.EventHandler(this.BtnInsertYen1000_OnClick);
             // 
-            // button5
+            // btnInsertYen100
             // 
-            this.button5.Location = new System.Drawing.Point(89, 232);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(58, 22);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnInsertYen100.Location = new System.Drawing.Point(89, 232);
+            this.btnInsertYen100.Name = "btnInsertYen100";
+            this.btnInsertYen100.Size = new System.Drawing.Size(58, 22);
+            this.btnInsertYen100.TabIndex = 7;
+            this.btnInsertYen100.Text = "100\\";
+            this.btnInsertYen100.UseVisualStyleBackColor = true;
+            this.btnInsertYen100.Click += new System.EventHandler(this.btnInsertYen100_OnClick);
             // 
-            // button6
+            // btnInsertYen10
             // 
-            this.button6.Location = new System.Drawing.Point(152, 232);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(58, 22);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnInsertYen10.Location = new System.Drawing.Point(152, 232);
+            this.btnInsertYen10.Name = "btnInsertYen10";
+            this.btnInsertYen10.Size = new System.Drawing.Size(58, 22);
+            this.btnInsertYen10.TabIndex = 8;
+            this.btnInsertYen10.Text = "10\\";
+            this.btnInsertYen10.UseVisualStyleBackColor = true;
+            this.btnInsertYen10.Click += new System.EventHandler(this.btnInsertYen10_OnClick);
             // 
             // label2
             // 
@@ -152,7 +157,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(-1, 13);
+            this.button7.Location = new System.Drawing.Point(2, 11);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(227, 129);
             this.button7.TabIndex = 12;
@@ -178,16 +183,16 @@
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnInsertYen10);
+            this.Controls.Add(this.btnInsertYen100);
+            this.Controls.Add(this.btnInsertYen1000);
             this.Controls.Add(this.lblInsertedYen2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnShohin03);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnShohin02);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnShohin01);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -204,19 +209,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnShohin02;
+        private System.Windows.Forms.Button btnShohin03;
+        private System.Windows.Forms.Button btnInsertYen1000;
+        private System.Windows.Forms.Button btnInsertYen100;
+        private System.Windows.Forms.Button btnInsertYen10;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button7;
         public System.Windows.Forms.Label lblInsertedYen2;
+        public System.Windows.Forms.Button btnShohin01;
     }
 }
 

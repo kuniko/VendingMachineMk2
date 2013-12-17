@@ -54,6 +54,11 @@ namespace VendingMachineMk2.Core {
             core.InsertYen(yen);
         }
 
+        public void PushButton(string shohinCode) {
+            VendingCore core = VendingCore.GetInstance();
+            core.PushShohinButton(shohinCode);
+        }
+
 
         /// <summary>
         /// binding用
@@ -69,17 +74,34 @@ namespace VendingMachineMk2.Core {
         // Shohin持たせたくないな～
 //        private List<Shohin> 
 
+        private bool _canBuyShohin01;
+
+        public bool BtnShohin01Binder {
+            set {
+                _canBuyShohin01 = value;
+                RefleshView_CanBuyShohin01(_canBuyShohin01);
+            }
+        }
 
 
         /// <summary>
         /// はー･･･全て作るのかぁ。。。
+        /// 
+        /// プロパティ監視にしたいけど･･･
+        /// Text指定という凄く残念な事になるので、諦めて個別に作る。
+        /// しかも、VMにViewへの操作を持たせます。諦めます。
         /// </summary>
         /// <param name="totalInsertedYen"></param>
         private void RefleshView_TotalInsertedYen(string totalInsertedYen) {
             _view.lblInsertedYen2.Text = totalInsertedYen;
         }
 
-        
+        private void RefleshView_CanBuyShohin01(bool canBuy) {
+            _view.btnShohin01.Enabled = canBuy;
+        }
+
+
+
 
 
     }

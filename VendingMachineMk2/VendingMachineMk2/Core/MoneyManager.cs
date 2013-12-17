@@ -45,6 +45,12 @@ namespace VendingMachineMk2.Core {
             return releaseYen;
         }
 
+        public int TotalInsertedYen {
+            get {
+                return _totalInsertedYen;
+            }
+        }
+
 
     }
 }

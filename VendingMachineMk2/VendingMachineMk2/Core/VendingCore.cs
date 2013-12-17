@@ -42,14 +42,21 @@ namespace VendingMachineMk2.Core {
             foreach (Shohin shouhin in ShohinMaster.ShouhinCatalogue()) {
                 bool canBuy = stockManager.CanBuy(shouhin.ShohinCode, totalYen);
 
-                if (canBuy) { 
-                }
+                T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+                viewModel.BtnShohin01Binder = canBuy;
             }
 
         }
 
-        public void PushShohinButton(string shohinCode) { 
-            
+        public void PushShohinButton(string shohinCode) {
+            MoneyManager moneyManager = MoneyManager.GetInstance();
+            StockManager stockManager = StockManager.GetInstance();
+
+            bool canBuy = stockManager.CanBuy(shohinCode, moneyManager.TotalInsertedYen);
+            if (canBuy) {
+                T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+                viewModel.BtnShohin01Binder = true;
+            }
         }
 
         public void Reflesh() { 

@@ -11,7 +11,7 @@ using VendingMachineMk2.Core;
 
 namespace VendingMachineMk2 {
     public partial class VendingMachine : Form {
-        
+
         public VendingMachine() {
             InitializeComponent();
             Initialize();
@@ -35,17 +35,32 @@ namespace VendingMachineMk2 {
             // 工夫して避けてもしんどい。MVVM Light ToolkitやPrismも、結局はWPFと組み合わせるのが前提である。
             //
             // 諦めて、手でViewModelを再現する方向性に。
-            // Bindingはしない！！IDEのサポートなしとか冗談じゃない！
+            // Bindingはしない。IDEのサポートなしとか冗談きつい。
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            
+
+
+        private void BtnShohin01_OnClick(object sender, EventArgs e) {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
         }
 
-        private void button4_Click(object sender, EventArgs e) {
+        private void BtnInsertYen1000_OnClick(object sender, EventArgs e) {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.InsertYen(1000);
+        }
+
+        private void btnInsertYen100_OnClick(object sender, EventArgs e) {
             T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
             viewModel.InsertYen(100);
         }
+
+        private void btnInsertYen10_OnClick(object sender, EventArgs e) {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.InsertYen(10);
+        }
+
+
+
 
     }
 }
