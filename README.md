@@ -5,7 +5,20 @@ BlendなしのXAMLは厳しいので、Formでいいや
 
 
 
-      V                    VM                     M                                           DataModel
-VendingMachine <==> T2WindowsFormController <==> VendingCore <==> XXXManager, YYYManager <==> Shohin
+
+View:VendingMachine
+
+↑↓
+
+ViewModel:T2WindowsFormController
+
+↑↓
+
+Model:XXXManager, YYYManager
+
+↑↓
+
+DataModel:Shohin
+
 
 的なイメージ。
