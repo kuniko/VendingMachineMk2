@@ -42,6 +42,7 @@ namespace VendingMachineMk2 {
 
         private void BtnShohin01_OnClick(object sender, EventArgs e) {
             T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.PushButton(VendingMachineMk2.Data.ShohinMaster.Otya().ShohinCode); //todo とりあえず。
         }
 
         private void BtnInsertYen1000_OnClick(object sender, EventArgs e) {

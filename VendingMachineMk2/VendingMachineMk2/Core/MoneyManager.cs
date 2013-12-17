@@ -35,6 +35,18 @@ namespace VendingMachineMk2.Core {
         }
 
         /// <summary>
+        /// かう。買っても買えなくても、残りの金額を返す。
+        /// </summary>
+        /// <param name="shohinYen"></param>
+        /// <returns></returns>
+        public int BuyShohin(int shohinYen) {
+            if (_totalInsertedYen >= shohinYen) {
+                _totalInsertedYen = _totalInsertedYen - shohinYen;
+            }
+            return _totalInsertedYen;
+        }
+
+        /// <summary>
         /// 投入されたお金を返却する。投入された金額は0円になる。
         /// </summary>
         /// <returns></returns>

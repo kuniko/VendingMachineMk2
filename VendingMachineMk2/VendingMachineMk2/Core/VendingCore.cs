@@ -29,9 +29,8 @@ namespace VendingMachineMk2.Core {
         public void InsertYen(int insertedYen) {
             MoneyManager moneyManager = MoneyManager.GetInstance();
             int totalYen = moneyManager.InsertYen(insertedYen);
+            RefleshTotalInsertedYen(totalYen);
 
-            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
-            viewModel.LblTotalInsertedYenBinder = totalYen.ToString() + "円"; // yey!
 
             CanBuyShohin(totalYen);
         }
@@ -43,7 +42,7 @@ namespace VendingMachineMk2.Core {
                 bool canBuy = stockManager.CanBuy(shouhin.ShohinCode, totalYen);
 
                 T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
-                viewModel.BtnShohin01Binder = canBuy;
+                viewModel.BtnShohin01Binder = canBuy; //todo いっこしか かえない。
             }
 
         }
@@ -52,16 +51,24 @@ namespace VendingMachineMk2.Core {
             MoneyManager moneyManager = MoneyManager.GetInstance();
             StockManager stockManager = StockManager.GetInstance();
 
+            Shohin toriaezuKoreKau = ShohinMaster.Otya(); //todo もちろん、好きな商品を買えるようにしないとね。
+
             bool canBuy = stockManager.CanBuy(shohinCode, moneyManager.TotalInsertedYen);
             if (canBuy) {
-                T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
-                viewModel.BtnShohin01Binder = true;
+                int totalYen = moneyManager.BuyShohin(toriaezuKoreKau.SellingYen);
+                RefleshTotalInsertedYen(totalYen);
+                CanBuyShohin(totalYen); //todo PropertyChangedを独自実装する。
+
+                //todo 買えたんだから、商品出さないとね。
             }
         }
 
-        public void Reflesh() { 
-
+        private void RefleshTotalInsertedYen(int totalYen) {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.LblTotalInsertedYenBinder = totalYen.ToString() + "円"; // yey!
         }
 
+        private void RefleshOutputShohinBox() {
+        }
     }
 }
