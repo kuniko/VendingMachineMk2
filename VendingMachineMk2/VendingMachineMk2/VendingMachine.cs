@@ -12,6 +12,9 @@ using VendingMachineMk2.Core;
 namespace VendingMachineMk2 {
     public partial class VendingMachine : Form {
 
+        // TODO Singletonはいいんだけど、メソッド毎にGetInstance()してるのをなんとかしよう。
+
+
         public VendingMachine() {
             InitializeComponent();
             Initialize();
