@@ -34,13 +34,14 @@
             this.btnInsertYen1000 = new System.Windows.Forms.Button();
             this.btnInsertYen100 = new System.Windows.Forms.Button();
             this.btnInsertYen10 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotalOtsuriYen = new System.Windows.Forms.Label();
             this.pictOutputShohinBox = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button7 = new System.Windows.Forms.Button();
             this.lblInsertedYen2 = new System.Windows.Forms.Label();
+            this.btnOtsuri = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictOutputShohinBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -65,6 +66,7 @@
             this.btnShohin02.Size = new System.Drawing.Size(64, 23);
             this.btnShohin02.TabIndex = 0;
             this.btnShohin02.UseVisualStyleBackColor = true;
+            this.btnShohin02.Click += new System.EventHandler(this.BtnShohin02_OnClick);
             // 
             // btnShohin03
             // 
@@ -74,6 +76,7 @@
             this.btnShohin03.Size = new System.Drawing.Size(64, 23);
             this.btnShohin03.TabIndex = 4;
             this.btnShohin03.UseVisualStyleBackColor = true;
+            this.btnShohin03.Click += new System.EventHandler(this.BtnShohin03_OnClick);
             // 
             // btnInsertYen1000
             // 
@@ -105,15 +108,16 @@
             this.btnInsertYen10.UseVisualStyleBackColor = true;
             this.btnInsertYen10.Click += new System.EventHandler(this.btnInsertYen10_OnClick);
             // 
-            // label2
+            // lblTotalOtsuriYen
             // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(151, 283);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(5);
-            this.label2.Size = new System.Drawing.Size(59, 24);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "10000円";
+            this.lblTotalOtsuriYen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotalOtsuriYen.Location = new System.Drawing.Point(151, 283);
+            this.lblTotalOtsuriYen.Name = "lblTotalOtsuriYen";
+            this.lblTotalOtsuriYen.Padding = new System.Windows.Forms.Padding(5);
+            this.lblTotalOtsuriYen.Size = new System.Drawing.Size(59, 24);
+            this.lblTotalOtsuriYen.TabIndex = 10;
+            this.lblTotalOtsuriYen.Text = "0円";
+            this.lblTotalOtsuriYen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pictOutputShohinBox
             // 
@@ -175,14 +179,26 @@
             this.lblInsertedYen2.Text = "0円";
             this.lblInsertedYen2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnOtsuri
+            // 
+            this.btnOtsuri.Location = new System.Drawing.Point(184, 258);
+            this.btnOtsuri.Name = "btnOtsuri";
+            this.btnOtsuri.Size = new System.Drawing.Size(26, 22);
+            this.btnOtsuri.TabIndex = 8;
+            this.btnOtsuri.Text = "―";
+            this.btnOtsuri.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnOtsuri.UseVisualStyleBackColor = true;
+            this.btnOtsuri.Click += new System.EventHandler(this.btnOtsuri_OnClick);
+            // 
             // VendingMachine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(229, 415);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTotalOtsuriYen);
             this.Controls.Add(this.pictOutputShohinBox);
+            this.Controls.Add(this.btnOtsuri);
             this.Controls.Add(this.btnInsertYen10);
             this.Controls.Add(this.btnInsertYen100);
             this.Controls.Add(this.btnInsertYen1000);
@@ -212,16 +228,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button btnShohin02;
-        private System.Windows.Forms.Button btnShohin03;
         private System.Windows.Forms.Button btnInsertYen1000;
         private System.Windows.Forms.Button btnInsertYen100;
         private System.Windows.Forms.Button btnInsertYen10;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button7;
         public System.Windows.Forms.Label lblInsertedYen2;
         public System.Windows.Forms.Button btnShohin01;
         public System.Windows.Forms.PictureBox pictOutputShohinBox;
+        public System.Windows.Forms.Button btnShohin02;
+        public System.Windows.Forms.Button btnShohin03;
+        private System.Windows.Forms.Button btnOtsuri;
+        public System.Windows.Forms.Label lblTotalOtsuriYen;
     }
 }
 

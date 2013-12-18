@@ -11,9 +11,9 @@ namespace VendingMachineMk2.Data {
     /// </summary>
     public static class ShohinMaster {
 
-        public const string ShohinCode_Otya = "Otya-001";
-        public const string ShohinCode_Conpota = "Conpota-001";
-        public const string ShohinCode_Coke = "Coke-001";
+        private const string ShohinCode_Otya = "Otya-001";
+        private const string ShohinCode_Conpota = "Conpota-001";
+        private const string ShohinCode_Coke = "Coke-001";
 
 
         public static IEnumerable<Shohin> ShouhinCatalogue() {
@@ -23,13 +23,23 @@ namespace VendingMachineMk2.Data {
         }
 
         static public Shohin Otya() {
-            return new Shohin(ShohinCode_Otya, "わーいお茶", 120);
+            return new Shohin(ShohinCode_Otya, "わーいお茶", 120, Properties.Resources.Can03);
         }
         static public Shohin Conpota() {
-            return new Shohin(ShohinCode_Conpota, "コンポタ☆", 120);
+            return new Shohin(ShohinCode_Conpota, "コンポタ☆", 120, Properties.Resources.Can04);
         }
         static public Shohin Coke() {
-            return new Shohin(ShohinCode_Coke, "コカ", 120);
+            return new Shohin(ShohinCode_Coke, "コカ", 120, Properties.Resources.Can02);
+        }
+
+        /// <summary>
+        /// 商品が無い時はException吐きますよ。
+        /// </summary>
+        /// <param name="shohinCode"></param>
+        /// <returns></returns>
+        public static Shohin SelectShohin(string shohinCode) {
+            Shohin selectedShohin = ShouhinCatalogue().Single(shohin => string.Equals(shohin.ShohinCode, shohinCode));
+            return selectedShohin;
         }
     }
 }

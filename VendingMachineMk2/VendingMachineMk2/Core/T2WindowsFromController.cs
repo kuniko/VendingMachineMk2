@@ -9,6 +9,7 @@ using VendingMachineMk2;
 namespace VendingMachineMk2.Core {
     using System.ComponentModel;
     using System.Drawing;
+    using System.Drawing.Printing;
     using System.Runtime.CompilerServices;
 
     using VendingMachineMk2.Data;
@@ -55,14 +56,28 @@ namespace VendingMachineMk2.Core {
             core.InsertYen(yen);
         }
 
-        public void PushButton(string shohinCode) {
+        /// <summary>
+        /// しょうひん かう
+        /// </summary>
+        /// <param name="shohinCode"></param>
+        public void PushShohinButton(string shohinCode) {
             VendingCore core = VendingCore.GetInstance();
             core.PushShohinButton(shohinCode);
         }
 
+        /// <summary>
+        /// かね かえせ
+        /// </summary>
+        /// <param name="shohinCode"></param>
+        public void PushOtsuriButton() {
+            VendingCore core = VendingCore.GetInstance();
+            core.PushOtsuriButton();
+        }
+
 
         /// <summary>
-        /// binding用
+        /// binding用.
+        /// 今、客によって投入されている金額。
         /// </summary>
         private string _totalInsertedYen = "";
         public string LblTotalInsertedYenBinder {
@@ -72,17 +87,46 @@ namespace VendingMachineMk2.Core {
             }
         }
 
+        /// <summary>
+        /// binding用.
+        /// 今、おつりBoxにある金額。
+        /// </summary>
+        private string _totalReturnedYen = "";
+        public string LblTotalOtsuriYenBinder {
+            set {
+                _totalReturnedYen = value;
+                RefleshView_LblTotalOtsuriYenBinder(_totalReturnedYen);
+            }
+        }
+
+
 
         /// <summary>
-        /// binding用
-        /// とりあえず、1個目の商品ボタン
+        /// binding用...だけど、もう直で操作してしまう。
+        /// 商品コードから、VIEWの商品ボタンの有効(買える)/無効(買えない)を制御する。
         /// </summary>
-        private bool _canBuyShohin01;
-        public bool BtnShohin01Binder {
-            set {
-                _canBuyShohin01 = value;
-                RefleshView_CanBuyShohin01(_canBuyShohin01);
+        /// <param name="shohinCode"></param>
+        /// <param name="canBuy"></param>
+        public void BtnShohinBinder(string shohinCode, bool canBuy) {
+            //todo 商品のボタンと、内部のロジックをつなぎ合わせるManagerを作る。ボタンの数だけ作るのは酷い。
+
+            if (string.IsNullOrWhiteSpace(shohinCode)) {
+                throw new ArgumentNullException("商品コードにNULLや空文字は使えないんですけど？");
             }
+
+            if (string.Equals(shohinCode, ShohinMaster.Otya().ShohinCode)) {
+                RefleshView_CanBuyShohin01(canBuy);
+                return;
+            }
+            if (string.Equals(shohinCode, ShohinMaster.Conpota().ShohinCode)) {
+                RefleshView_CanBuyShohin02(canBuy);
+                return;
+            }
+            if (string.Equals(shohinCode, ShohinMaster.Coke().ShohinCode)) {
+                RefleshView_CanBuyShohin03(canBuy);
+                return;
+            }
+
         }
 
 
@@ -97,14 +141,29 @@ namespace VendingMachineMk2.Core {
         private void RefleshView_TotalInsertedYen(string totalInsertedYen) {
             _view.lblInsertedYen2.Text = totalInsertedYen;
         }
+        private void RefleshView_LblTotalOtsuriYenBinder(string totalOtsuriYen) {
+            _view.lblTotalOtsuriYen.Text = totalOtsuriYen;
+        }
 
         private void RefleshView_CanBuyShohin01(bool canBuy) {
             _view.btnShohin01.Enabled = canBuy;
         }
 
+        private void RefleshView_CanBuyShohin02(bool canBuy) {
+            _view.btnShohin02.Enabled = canBuy;
+        }
 
+        private void RefleshView_CanBuyShohin03(bool canBuy) {
+            _view.btnShohin03.Enabled = canBuy;
+        }
+
+
+        /// <summary>
+        /// ピンポーン。ご利用ありがとうございました。
+        /// </summary>
+        /// <param name="shohin"></param>
         public void RefleshView_OutputShohinBox(Shohin shohin) {
-            _view.pictOutputShohinBox.Image = Properties.Resources.Can03;
+            _view.pictOutputShohinBox.Image = shohin.ShohinImage;
             _view.pictOutputShohinBox.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
         }
 

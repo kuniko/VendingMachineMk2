@@ -38,12 +38,21 @@ namespace VendingMachineMk2 {
             // Bindingはしない。IDEのサポートなしとか冗談きつい。
         }
 
-
-
         private void BtnShohin01_OnClick(object sender, EventArgs e) {
             T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
-            viewModel.PushButton(VendingMachineMk2.Data.ShohinMaster.Otya().ShohinCode); //todo とりあえず。
+            viewModel.PushShohinButton(Data.ShohinMaster.Otya().ShohinCode); // todo 商品マスタをそろそろ要検討
         }
+
+        private void BtnShohin02_OnClick(object sender, EventArgs e) {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.PushShohinButton(Data.ShohinMaster.Conpota().ShohinCode); // 同上
+        }
+
+        private void BtnShohin03_OnClick(object sender, EventArgs e) {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.PushShohinButton(Data.ShohinMaster.Coke().ShohinCode); // 同上
+        }
+
 
         private void BtnInsertYen1000_OnClick(object sender, EventArgs e) {
             T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
@@ -58,6 +67,11 @@ namespace VendingMachineMk2 {
         private void btnInsertYen10_OnClick(object sender, EventArgs e) {
             T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
             viewModel.InsertYen(10);
+        }
+
+        private void btnOtsuri_OnClick(object sender, EventArgs e) {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.PushOtsuriButton();
         }
 
 

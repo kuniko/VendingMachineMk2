@@ -35,11 +35,23 @@ namespace VendingMachineMk2.Core {
         }
 
         /// <summary>
-        /// かう。買っても買えなくても、残りの金額を返す。
+        /// 投入されている金額から、指定した商品金額を引く。
+        /// 
+        /// ・0以下の値を入れると絶叫します。
+        /// 
+        /// ・投入金額 ＜ 商品金額 の場合、投入金額に変動はありません。
+        ///   実際の自販機も、10円だけ入れてボタン押せるからです。
+        ///   ※ 今はボタンのEnabledを弄っているので押せないですけど...
+        /// 
+        /// ・残りの金額を返します。
         /// </summary>
         /// <param name="shohinYen"></param>
         /// <returns></returns>
-        public int BuyShohin(int shohinYen) {
+        public int MinusTotalInsertedYen(int shohinYen) {
+            if (shohinYen <= 0) {
+                throw new InvalidProgramException("タダで買えるとか、お金が貰えるとかどういうこと？サービス？");
+            }
+
             if (_totalInsertedYen >= shohinYen) {
                 _totalInsertedYen = _totalInsertedYen - shohinYen;
             }
