@@ -1,0 +1,4 @@
+#コミット時無視設定：デバック時作成フォルダとUser設定ファイル
+.suo 
+VendingMachineMk2/VendingMachineMk2/bin/
+VendingMachineMk2/VendingMachineMk2/obj/
