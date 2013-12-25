@@ -37,6 +37,9 @@ namespace VendingMachineMk2.Core {
             _stockList.Add(ShohinMaster.Otya());
             _stockList.Add(ShohinMaster.Conpota());
             _stockList.Add(ShohinMaster.Coke());
+            _stockList.Add(ShohinMaster.Otyada());
+            _stockList.Add(ShohinMaster.Otyada());
+
         }
 
         public bool CanBuy(string shohinCode, int insertedYen) {

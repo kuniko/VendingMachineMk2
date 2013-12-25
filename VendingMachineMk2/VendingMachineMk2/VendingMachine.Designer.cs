@@ -35,17 +35,23 @@
             this.btnInsertYen100 = new System.Windows.Forms.Button();
             this.btnInsertYen10 = new System.Windows.Forms.Button();
             this.lblTotalOtsuriYen = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.lblInsertedYen2 = new System.Windows.Forms.Label();
+            this.btnOtsuri = new System.Windows.Forms.Button();
             this.pictOutputShohinBox = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.lblInsertedYen2 = new System.Windows.Forms.Label();
-            this.btnOtsuri = new System.Windows.Forms.Button();
+            this.btnShohin04 = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btnShohin05 = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictOutputShohinBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // btnShohin01
@@ -61,7 +67,7 @@
             // btnShohin02
             // 
             this.btnShohin02.Enabled = false;
-            this.btnShohin02.Location = new System.Drawing.Point(83, 148);
+            this.btnShohin02.Location = new System.Drawing.Point(83, 147);
             this.btnShohin02.Name = "btnShohin02";
             this.btnShohin02.Size = new System.Drawing.Size(64, 23);
             this.btnShohin02.TabIndex = 0;
@@ -71,7 +77,7 @@
             // btnShohin03
             // 
             this.btnShohin03.Enabled = false;
-            this.btnShohin03.Location = new System.Drawing.Point(153, 148);
+            this.btnShohin03.Location = new System.Drawing.Point(153, 147);
             this.btnShohin03.Name = "btnShohin03";
             this.btnShohin03.Size = new System.Drawing.Size(64, 23);
             this.btnShohin03.TabIndex = 4;
@@ -111,7 +117,7 @@
             // lblTotalOtsuriYen
             // 
             this.lblTotalOtsuriYen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTotalOtsuriYen.Location = new System.Drawing.Point(151, 283);
+            this.lblTotalOtsuriYen.Location = new System.Drawing.Point(298, 283);
             this.lblTotalOtsuriYen.Name = "lblTotalOtsuriYen";
             this.lblTotalOtsuriYen.Padding = new System.Windows.Forms.Padding(5);
             this.lblTotalOtsuriYen.Size = new System.Drawing.Size(59, 24);
@@ -119,12 +125,43 @@
             this.lblTotalOtsuriYen.Text = "0円";
             this.lblTotalOtsuriYen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(2, 11);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(227, 129);
+            this.button7.TabIndex = 12;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // lblInsertedYen2
+            // 
+            this.lblInsertedYen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInsertedYen2.Location = new System.Drawing.Point(298, 197);
+            this.lblInsertedYen2.Name = "lblInsertedYen2";
+            this.lblInsertedYen2.Padding = new System.Windows.Forms.Padding(5);
+            this.lblInsertedYen2.Size = new System.Drawing.Size(59, 24);
+            this.lblInsertedYen2.TabIndex = 5;
+            this.lblInsertedYen2.Text = "0円";
+            this.lblInsertedYen2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnOtsuri
+            // 
+            this.btnOtsuri.Image = global::VendingMachineMk2.Properties.Resources.Lever_MoneyRefund;
+            this.btnOtsuri.Location = new System.Drawing.Point(324, 249);
+            this.btnOtsuri.Name = "btnOtsuri";
+            this.btnOtsuri.Size = new System.Drawing.Size(33, 31);
+            this.btnOtsuri.TabIndex = 8;
+            this.btnOtsuri.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnOtsuri.UseVisualStyleBackColor = true;
+            this.btnOtsuri.Click += new System.EventHandler(this.btnOtsuri_OnClick);
+            // 
             // pictOutputShohinBox
             // 
             this.pictOutputShohinBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictOutputShohinBox.Location = new System.Drawing.Point(12, 325);
             this.pictOutputShohinBox.Name = "pictOutputShohinBox";
-            this.pictOutputShohinBox.Size = new System.Drawing.Size(205, 78);
+            this.pictOutputShohinBox.Size = new System.Drawing.Size(345, 78);
             this.pictOutputShohinBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictOutputShohinBox.TabIndex = 9;
             this.pictOutputShohinBox.TabStop = false;
@@ -132,7 +169,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::VendingMachineMk2.Properties.Resources.Can02;
-            this.pictureBox3.Location = new System.Drawing.Point(153, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(153, 13);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(64, 128);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -159,43 +196,53 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // button7
+            // btnShohin04
             // 
-            this.button7.Location = new System.Drawing.Point(2, 11);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(227, 129);
-            this.button7.TabIndex = 12;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnShohin04.Enabled = false;
+            this.btnShohin04.Location = new System.Drawing.Point(223, 147);
+            this.btnShohin04.Name = "btnShohin04";
+            this.btnShohin04.Size = new System.Drawing.Size(64, 23);
+            this.btnShohin04.TabIndex = 14;
+            this.btnShohin04.UseVisualStyleBackColor = true;
+            this.btnShohin04.Click += new System.EventHandler(this.BtnShohin04_OnClick);
             // 
-            // lblInsertedYen2
+            // pictureBox4
             // 
-            this.lblInsertedYen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblInsertedYen2.Location = new System.Drawing.Point(151, 196);
-            this.lblInsertedYen2.Name = "lblInsertedYen2";
-            this.lblInsertedYen2.Padding = new System.Windows.Forms.Padding(5);
-            this.lblInsertedYen2.Size = new System.Drawing.Size(59, 24);
-            this.lblInsertedYen2.TabIndex = 5;
-            this.lblInsertedYen2.Text = "0円";
-            this.lblInsertedYen2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.pictureBox4.Image = global::VendingMachineMk2.Properties.Resources.Can05;
+            this.pictureBox4.Location = new System.Drawing.Point(223, 13);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(64, 128);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
             // 
-            // btnOtsuri
+            // btnShohin05
             // 
-            this.btnOtsuri.Location = new System.Drawing.Point(184, 258);
-            this.btnOtsuri.Name = "btnOtsuri";
-            this.btnOtsuri.Size = new System.Drawing.Size(26, 22);
-            this.btnOtsuri.TabIndex = 8;
-            this.btnOtsuri.Text = "―";
-            this.btnOtsuri.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnOtsuri.UseVisualStyleBackColor = true;
-            this.btnOtsuri.Click += new System.EventHandler(this.btnOtsuri_OnClick);
+            this.btnShohin05.Enabled = false;
+            this.btnShohin05.Location = new System.Drawing.Point(293, 147);
+            this.btnShohin05.Name = "btnShohin05";
+            this.btnShohin05.Size = new System.Drawing.Size(64, 23);
+            this.btnShohin05.TabIndex = 16;
+            this.btnShohin05.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(293, 13);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(64, 128);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox5.TabIndex = 15;
+            this.pictureBox5.TabStop = false;
             // 
             // VendingMachine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(229, 415);
-            this.Controls.Add(this.button7);
+            this.ClientSize = new System.Drawing.Size(377, 415);
+            this.Controls.Add(this.btnShohin05);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.btnShohin04);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.lblTotalOtsuriYen);
             this.Controls.Add(this.pictOutputShohinBox);
             this.Controls.Add(this.btnOtsuri);
@@ -209,6 +256,7 @@
             this.Controls.Add(this.btnShohin02);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnShohin01);
+            this.Controls.Add(this.button7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -218,6 +266,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,6 +289,10 @@
         public System.Windows.Forms.Button btnShohin03;
         private System.Windows.Forms.Button btnOtsuri;
         public System.Windows.Forms.Label lblTotalOtsuriYen;
+        public System.Windows.Forms.Button btnShohin04;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        public System.Windows.Forms.Button btnShohin05;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
 

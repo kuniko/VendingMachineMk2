@@ -127,4 +127,10 @@
   <data name="Can04" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Can04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Can05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Can05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lever_MoneyRefund" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lever_MoneyRefund.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

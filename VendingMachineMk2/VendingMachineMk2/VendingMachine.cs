@@ -56,6 +56,10 @@ namespace VendingMachineMk2 {
             viewModel.PushShohinButton(Data.ShohinMaster.Coke().ShohinCode); // 同上
         }
 
+        private void BtnShohin04_OnClick(object sender, EventArgs e) {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            viewModel.PushShohinButton(Data.ShohinMaster.Otyada().ShohinCode); // 同上
+        }
 
         private void BtnInsertYen1000_OnClick(object sender, EventArgs e) {
             T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
@@ -76,6 +80,8 @@ namespace VendingMachineMk2 {
             T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
             viewModel.PushOtsuriButton();
         }
+
+
 
 
 

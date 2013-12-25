@@ -126,7 +126,11 @@ namespace VendingMachineMk2.Core {
                 RefleshView_CanBuyShohin03(canBuy);
                 return;
             }
-
+            if (string.Equals(shohinCode, ShohinMaster.Otyada().ShohinCode))
+            {
+                RefleshView_CanBuyShohin04(canBuy);
+                return;
+            }
         }
 
 
@@ -155,6 +159,11 @@ namespace VendingMachineMk2.Core {
 
         private void RefleshView_CanBuyShohin03(bool canBuy) {
             _view.btnShohin03.Enabled = canBuy;
+        }
+
+        private void RefleshView_CanBuyShohin04(bool canBuy)
+        {
+            _view.btnShohin04.Enabled = canBuy;
         }
 
 

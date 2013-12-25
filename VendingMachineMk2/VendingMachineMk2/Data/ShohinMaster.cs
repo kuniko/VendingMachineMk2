@@ -14,12 +14,14 @@ namespace VendingMachineMk2.Data {
         private const string ShohinCode_Otya = "Otya-001";
         private const string ShohinCode_Conpota = "Conpota-001";
         private const string ShohinCode_Coke = "Coke-001";
+        private const string ShohinCode_Otyada = "Otya-002";
 
 
         public static IEnumerable<Shohin> ShouhinCatalogue() {
             yield return Otya();
             yield return Conpota();
             yield return Coke();
+            yield return Otyada();
         }
 
         static public Shohin Otya() {
@@ -30,6 +32,10 @@ namespace VendingMachineMk2.Data {
         }
         static public Shohin Coke() {
             return new Shohin(ShohinCode_Coke, "コカ", 120, Properties.Resources.Can02);
+        }
+        static public Shohin Otyada()
+        {
+            return new Shohin(ShohinCode_Otyada, "静右衛門", 150, Properties.Resources.Can05);
         }
 
         /// <summary>
