@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VendingMachineMk2;
 using VendingMachineMk2.Core;
+using VendingMachineMk2.Data;
 
 namespace VendingMachineMk2 {
     public partial class VendingMachine : Form {
 
         // TODO Singletonはいいんだけど、メソッド毎にGetInstance()してるのをなんとかしよう。
-
 
         public VendingMachine() {
             InitializeComponent();
@@ -41,26 +42,6 @@ namespace VendingMachineMk2 {
             // Bindingはしない。IDEのサポートなしとか冗談きつい。
         }
 
-        private void BtnShohin01_OnClick(object sender, EventArgs e) {
-            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
-            viewModel.PushShohinButton(Data.ShohinMaster.Otya().ShohinCode); // todo 商品マスタをそろそろ要検討
-        }
-
-        private void BtnShohin02_OnClick(object sender, EventArgs e) {
-            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
-            viewModel.PushShohinButton(Data.ShohinMaster.Conpota().ShohinCode); // 同上
-        }
-
-        private void BtnShohin03_OnClick(object sender, EventArgs e) {
-            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
-            viewModel.PushShohinButton(Data.ShohinMaster.Coke().ShohinCode); // 同上
-        }
-
-        private void BtnShohin04_OnClick(object sender, EventArgs e) {
-            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
-            viewModel.PushShohinButton(Data.ShohinMaster.Otyada().ShohinCode); // 同上
-        }
-
         private void BtnInsertYen1000_OnClick(object sender, EventArgs e) {
             T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
             viewModel.InsertYen(1000);
@@ -82,9 +63,28 @@ namespace VendingMachineMk2 {
         }
 
 
+        /// <summary>
+        /// 押下されたボタン名を取得し、取得したボタン名をVMに渡す。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        private void BtnShohin_OnClick(object sender, EventArgs e)
+        {
+            T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
+            
+            // ボタン名 GET!
+            String btnName = ((Button)sender).Name;
 
+            // ボタン名→ボタン番号
+            int btnNumber = viewModel.GetBtnNumber(btnName);
 
+            // ボタン番号→管理商品
+            Shohin managementShohin = viewModel.GetManagementShohin(btnNumber);
 
+            // 管理商品商品コードを内部処理へ送る
+            viewModel.PushShohinButton(managementShohin.ShohinCode); 
+        }
 
     }
 }

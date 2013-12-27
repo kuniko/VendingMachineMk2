@@ -62,7 +62,7 @@
             this.btnShohin01.Size = new System.Drawing.Size(64, 23);
             this.btnShohin01.TabIndex = 0;
             this.btnShohin01.UseVisualStyleBackColor = true;
-            this.btnShohin01.Click += new System.EventHandler(this.BtnShohin01_OnClick);
+            this.btnShohin01.Click += new System.EventHandler(this.BtnShohin_OnClick);
             // 
             // btnShohin02
             // 
@@ -72,7 +72,7 @@
             this.btnShohin02.Size = new System.Drawing.Size(64, 23);
             this.btnShohin02.TabIndex = 0;
             this.btnShohin02.UseVisualStyleBackColor = true;
-            this.btnShohin02.Click += new System.EventHandler(this.BtnShohin02_OnClick);
+            this.btnShohin02.Click += new System.EventHandler(this.BtnShohin_OnClick);
             // 
             // btnShohin03
             // 
@@ -82,7 +82,7 @@
             this.btnShohin03.Size = new System.Drawing.Size(64, 23);
             this.btnShohin03.TabIndex = 4;
             this.btnShohin03.UseVisualStyleBackColor = true;
-            this.btnShohin03.Click += new System.EventHandler(this.BtnShohin03_OnClick);
+            this.btnShohin03.Click += new System.EventHandler(this.BtnShohin_OnClick);
             // 
             // btnInsertYen1000
             // 
@@ -204,11 +204,12 @@
             this.btnShohin04.Size = new System.Drawing.Size(64, 23);
             this.btnShohin04.TabIndex = 14;
             this.btnShohin04.UseVisualStyleBackColor = true;
-            this.btnShohin04.Click += new System.EventHandler(this.BtnShohin04_OnClick);
+            this.btnShohin04.Click += new System.EventHandler(this.BtnShohin_OnClick);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::VendingMachineMk2.Properties.Resources.Can05;
+            this.pictureBox4.ImageLocation = "";
             this.pictureBox4.Location = new System.Drawing.Point(223, 13);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(64, 128);
@@ -224,6 +225,7 @@
             this.btnShohin05.Size = new System.Drawing.Size(64, 23);
             this.btnShohin05.TabIndex = 16;
             this.btnShohin05.UseVisualStyleBackColor = true;
+            this.btnShohin05.Click += new System.EventHandler(this.BtnShohin_OnClick);
             // 
             // pictureBox5
             // 

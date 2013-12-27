@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace VendingMachineMk2.Data {
     /// <summary>
     /// 商品マスタですけど･･･仮です。
