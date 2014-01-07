@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VendingMachineMk2;
+using VendingMachineMk2.Core;
 using VendingMachineMk2.Data;
 
 
@@ -114,26 +115,17 @@ namespace VendingMachineMk2.Core {
                 throw new ArgumentNullException("商品コードにNULLや空文字は使えないんですけど？");
             }
 
-            if (string.Equals(shohinCode, ShohinMaster.Otya().ShohinCode))
-            {
-                RefleshView_CanBuyShohin01(canBuy);
-                return;
-            }
-            if (string.Equals(shohinCode, ShohinMaster.Conpota().ShohinCode))
-            {
-                RefleshView_CanBuyShohin02(canBuy);
-                return;
-            }
-            if (string.Equals(shohinCode, ShohinMaster.Coke().ShohinCode))
-            {
-                RefleshView_CanBuyShohin03(canBuy);
-                return;
-            }
-            if (string.Equals(shohinCode, ShohinMaster.Otyada().ShohinCode))
-            {
-                RefleshView_CanBuyShohin04(canBuy);
-                return;
-            }
+            // 商品の種類を商品コードから取得
+            //Shohin shohinType = ShohinMaster.SelectShohin(shohinCode);
+
+            // 結びつき設定を持つマップを取得
+            Dictionary<Object, Shohin> btnNumLinkShouhinMap = MakeMapOfBtnLinkShohin();
+
+            // 商品の種類から対応するボタンを取得
+            Object btn = GetBtnByShohinType(btnNumLinkShouhinMap, shohinCode);
+
+            // ボタンの有効無効切り替えを行う（Viewへ）
+            _view.RefleshView_CanBuyShohin(btn, canBuy);
 
         }
 
@@ -153,78 +145,55 @@ namespace VendingMachineMk2.Core {
             _view.lblTotalOtsuriYen.Text = totalOtsuriYen;
         }
 
-        private void RefleshView_CanBuyShohin01(bool canBuy) {
-            _view.btnShohin01.Enabled = canBuy;
-        }
 
-        private void RefleshView_CanBuyShohin02(bool canBuy) {
-            _view.btnShohin02.Enabled = canBuy;
-        }
-
-        private void RefleshView_CanBuyShohin03(bool canBuy) {
-            _view.btnShohin03.Enabled = canBuy;
-        }
-
-        private void RefleshView_CanBuyShohin04(bool canBuy)
+        /// <summary>
+        /// 取得したボタンから、管理商品の商品コードを取得する。 
+        /// </summary>
+        /// <param name="btnName">押下したボタン</param>
+        /// <returns>管理商品の商品コードを返す。</returns>
+        public Shohin GetManagementShohin(object pushBtn)
         {
-            _view.btnShohin04.Enabled = canBuy;
-        }
+            // 結びつき設定を持つマップを取得
+            Dictionary<Object, Shohin> btnNameLinkBtnNumMap = MakeMapOfBtnLinkShohin();
 
+            // 押下されたボタンから管理商品を取得
+            Shohin managementShohin = btnNameLinkBtnNumMap[pushBtn];
+
+            return managementShohin;
+        }
 
 
         /// <summary>
-        /// 取得したボタン名から、内部処理用のボタン番号を取得する。 
+        /// ハッシュマップの逆引きをする（値からキーを取得する）
+        /// 商品マスターの商品コードを判断値にし、値を判定、値と対となるキーを返す
+        /// </summary>
+        /// <param name="dictionaries">逆引き対象ハッシュマップ</param>
+        /// <param name="shohinCode">判断値とする商品コード</param>
+        /// <returns>値と対となるキーを返す。</returns>
+        public Object GetBtnByShohinType(Dictionary<Object, Shohin> dictionaries, String shohinCode)
+        {
+            return dictionaries.FirstOrDefault(x => x.Value.ShohinCode == shohinCode).Key;
+        }
+
+
+        /// <summary>
+        /// ボタンと管理商品を結びつける設定資料を作成する 
         /// （20131226：とりあえず結びつきの設定をハッシュマップで強引に設定）
         /// （Todo：値の設定資料はDataフォルダのなかに入れたいんだけど、ディクショナリーさんがうまく使えなくなるのでひとまずここ）
         /// </summary>
-        /// <param name="btnName">押下したボタンの名前</param>
-        /// <returns></returns>
-        public int GetBtnNumber(string btnName){
-
-            Dictionary<string, int> btnNameLinkBtnNumMap = new Dictionary<string, int>();       // インスタンスの生成
-
-            // ボタン名とボタン番号を結びつける設定資料
-            btnNameLinkBtnNumMap.Add("btnShohin01", 1);
-            btnNameLinkBtnNumMap.Add("btnShohin02", 2);
-            btnNameLinkBtnNumMap.Add("btnShohin03", 3);
-            btnNameLinkBtnNumMap.Add("btnShohin04", 4);
-            btnNameLinkBtnNumMap.Add("btnShohin05", 5);
-
-            // 押下されたボタン名からボタン番号を取得
-            int btnNumber = btnNameLinkBtnNumMap[btnName];
-
-            return btnNumber;
-        }
-
-
-        /// <summary>
-        /// ボタン番号から、管理商品を取得する。
-        /// （20131227：上と同じでとりあえず結びつきの設定をハッシュマップで強引に設定）
-        /// （Todo：値の設定資料はDataフォルダのなかに入れたいんだけど、ディクショナリーさんがうまく使えなくなるのでひとまずここ）
-        /// </summary>
-        /// <param name="btnNumber">押下したボタンから取得したボタン番号</param>
-        /// <returns></returns>
-        public Shohin GetManagementShohin(int btnNumber)
+        /// <returns>btnNameLinkBtnNumMap:ボタンと管理商品を結びつける設定資料</returns>
+        public Dictionary<Object, Shohin> MakeMapOfBtnLinkShohin()
         {
-            
-            Dictionary<int, Shohin> btnNumLinkShouhinMap = new Dictionary<int,Shohin>();       // インスタンスの生成
+            Dictionary<Object, Shohin> btnLinkShouhinMap = new Dictionary<Object, Shohin>();       // インスタンスの生成
 
-            // ボタン番号と管理商品を結びつける設定資料
-            btnNumLinkShouhinMap.Add(1,ShohinMaster.Otya());
-            btnNumLinkShouhinMap.Add(2,ShohinMaster.Conpota());
-            btnNumLinkShouhinMap.Add(3,ShohinMaster.Coke());
-            btnNumLinkShouhinMap.Add(4,ShohinMaster.Otyada());
-            btnNumLinkShouhinMap.Add(5,ShohinMaster.Otyada());
+            // ボタンと管理商品を結びつける設定資料
+            btnLinkShouhinMap.Add(_view.btnShohin01, ShohinMaster.Otya());
+            btnLinkShouhinMap.Add(_view.btnShohin02, ShohinMaster.Conpota());
+            btnLinkShouhinMap.Add(_view.btnShohin03, ShohinMaster.Coke());
+            btnLinkShouhinMap.Add(_view.btnShohin04, ShohinMaster.Otyada());
 
-            //------------------------------------------------//
-
-            // ボタン番号から、管理商品を取得
-            Shohin managementShohin = btnNumLinkShouhinMap[btnNumber];
-
-            return managementShohin;
-
+            return btnLinkShouhinMap;
         }
-
 
 
         /// <summary>
@@ -238,25 +207,3 @@ namespace VendingMachineMk2.Core {
     }
 }
 
-
-
-
-
-
-//if (string.Equals(shohinCode, ShohinMaster.Otya().ShohinCode)) {
-//    RefleshView_CanBuyShohin01(canBuy);
-//    return;
-//}
-//if (string.Equals(shohinCode, ShohinMaster.Conpota().ShohinCode)) {
-//    RefleshView_CanBuyShohin02(canBuy);
-//    return;
-//}
-//if (string.Equals(shohinCode, ShohinMaster.Coke().ShohinCode)) {
-//    RefleshView_CanBuyShohin03(canBuy);
-//    return;
-//}
-//if (string.Equals(shohinCode, ShohinMaster.Otyada().ShohinCode))
-//{
-//    RefleshView_CanBuyShohin04(canBuy);
-//    return;
-//}

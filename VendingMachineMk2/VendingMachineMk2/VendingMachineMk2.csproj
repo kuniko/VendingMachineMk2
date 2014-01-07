@@ -65,7 +65,6 @@
     <Compile Include="Core\StockManager.cs" />
     <Compile Include="Core\T2WindowsFromController.cs" />
     <Compile Include="Core\VendingCore.cs" />
-    <Compile Include="Data\ButtonNumberSetting.cs" />
     <Compile Include="Data\Shohin.cs" />
     <Compile Include="Data\ShohinMaster.cs" />
     <Compile Include="VendingMachine.cs">

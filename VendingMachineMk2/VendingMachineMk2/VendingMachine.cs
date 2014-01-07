@@ -14,11 +14,21 @@ using VendingMachineMk2.Data;
 namespace VendingMachineMk2 {
     public partial class VendingMachine : Form {
 
+        private static VendingMachine _instance;
+        
         // TODO Singletonはいいんだけど、メソッド毎にGetInstance()してるのをなんとかしよう。
 
         public VendingMachine() {
             InitializeComponent();
             Initialize();
+        }
+
+        public static VendingMachine GetInstance() {
+            if (_instance == null) {
+                _instance = new VendingMachine();
+            }
+
+            return _instance;
         }
 
         private void Initialize() {
@@ -64,7 +74,7 @@ namespace VendingMachineMk2 {
 
 
         /// <summary>
-        /// 押下されたボタン名を取得し、取得したボタン名をVMに渡す。
+        /// ボタンの管理対象商品商品コードを内部処理へ送る。
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -72,18 +82,31 @@ namespace VendingMachineMk2 {
         private void BtnShohin_OnClick(object sender, EventArgs e)
         {
             T2WindowsFormController viewModel = T2WindowsFormController.GetInstance();
-            
-            // ボタン名 GET!
-            String btnName = ((Button)sender).Name;
 
-            // ボタン名→ボタン番号
-            int btnNumber = viewModel.GetBtnNumber(btnName);
+            // ボタンを元に、ボタンの管理商品を取得
+            Shohin managementShohin = viewModel.GetManagementShohin(sender);
 
-            // ボタン番号→管理商品
-            Shohin managementShohin = viewModel.GetManagementShohin(btnNumber);
-
-            // 管理商品商品コードを内部処理へ送る
+            // 管理商品の商品コードを内部処理へ送る
             viewModel.PushShohinButton(managementShohin.ShohinCode); 
+        }
+
+
+        /// <summary>
+        /// 商品購入ボタンの有効無効プロパティ制御を行う。
+        /// </summary>
+        /// <param name="btn">制御対象となる商品購入ボタン</param>
+        /// <param name="canBuy">true:購入可＝ボタン有効 / False:購入不可＝ボタン無効</param>
+        public void RefleshView_CanBuyShohin(Object btn, bool canBuy)
+        {
+            // 制御を行うため、Object型からControl型へキャスト
+            Control cFindControl = (Control)btn;
+
+            // ボタンが存在する場合は有効無効プロパティを設定
+            if (cFindControl != null)
+            {
+                // 購入可不可とボタン有効無効を連動させるため、canbuyを使う。
+                cFindControl.Enabled = canBuy;
+            }
         }
 
     }
