@@ -1,0 +1,5 @@
+C:\git\VendingMachineMk2\VendingMachineMk2\VendingMachineMk2\bin\Debug\VendingMachineMk2.exe.config
+C:\git\VendingMachineMk2\VendingMachineMk2\VendingMachineMk2\obj\Debug\VendingMachineMk2.csprojResolveAssemblyReference.cache
+C:\git\VendingMachineMk2\VendingMachineMk2\VendingMachineMk2\obj\Debug\VendingMachineMk2.VendingMachine.resources
+C:\git\VendingMachineMk2\VendingMachineMk2\VendingMachineMk2\obj\Debug\VendingMachineMk2.Properties.Resources.resources
+C:\git\VendingMachineMk2\VendingMachineMk2\VendingMachineMk2\obj\Debug\VendingMachineMk2.csproj.GenerateResource.Cache
