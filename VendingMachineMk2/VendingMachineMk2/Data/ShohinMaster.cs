@@ -26,7 +26,7 @@ namespace VendingMachineMk2.Data {
             return new Shohin(ShohinCode_Otya, "わーいお茶", 120, Properties.Resources.Can03);
         }
         static public Shohin Conpota() {
-            return new Shohin(ShohinCode_Conpota, "コンポタ☆", 120, Properties.Resources.Can04);
+            return new Shohin(ShohinCode_Conpota, "☆コンポタ☆コンポタ☆", 120, Properties.Resources.Can04);
         }
         static public Shohin Coke() {
             return new Shohin(ShohinCode_Coke, "コカ", 120, Properties.Resources.Can02);
